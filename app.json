@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/input/input",
+    "pages/new/new",
+    "pages/once/once",
+    "pages/repeat/repeat",
+    "pages/group/group",
+    "pages/me/me",
+    "pages/task/task",
+    "pages/profile/profile"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#6BC235",
+    "navigationBarTitleText": "TASK",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "color": "#626567",
+    "selectedColor": "#6BC235",
+    "backgroundColor": "#FBFBFB",
+    "borderStyle": "white",
+    
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "TODO",
+      "iconPath": "images/targets.png",
+      "selectedIconPath": "images/targets.png"
+    }, {
+      "pagePath": "pages/task/task",
+      "text": "Task",
+      "iconPath": "images/habits.png",
+      "selectedIconPath": "images/habits.png"
+    }, {
+      "pagePath": "pages/group/group",
+      "text": "Group",
+      "iconPath": "images/group.png",
+      "selectedIconPath": "images/group.png"
+    }, {
+      "pagePath": "pages/me/me",
+      "text": "Me",
+      "iconPath": "images/me.png",
+      "selectedIconPath": "images/me.png"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

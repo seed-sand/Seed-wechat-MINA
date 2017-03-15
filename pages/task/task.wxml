@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view class="search flex-wrp">
+        
+      <view class="search-left flex-item">
+          <image src="../../images/search.png"></image>
+          <input placeholder="快速添加目标" placeholder-class="search-placeholder"/>
+      </view>
+      <view class="search-right flex-item" >
+      <navigator url="../new/new" >
+        <image src="../../images/plus.png"></image>
+      </navigator>
+          
+      </view>
+
+  </view>
+
+
+       <view class="v-content" bindtap="onClickPaper">
+     <view class="v-main"  >
+        <view class="time_left">
+          <text>距下个里程碑还有<text class="target_days">30</text>天
+          </text>
+        </view>
+        <view class="target_headline">
+          <text>目标：坚持跑完一个全马
+          </text>
+        </view>
+        <view class="small_info">
+          <image class="user_picture" src="../../images/hire-me.png">
+          </image>
+          <text class="user_name">name
+          </text>
+        </view>
+     </view>
+    <view class="ripple" style="{{ripple_style}}"></view>
+  </view>
+</scroll-view>
+

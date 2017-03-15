@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="page-body">
+
+
+
+    <view class="page-section">
+      <view class="weui-cells__title">
+      <text>添加里程碑：
+      </text>
+      <image class="plus2" src="../../images/plus2.png"/></view>
+
+      
+
+      <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+       <input class="weui-input" auto-focus placeholder="里程碑事件" />
+       
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">当前选择</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+              <view class="weui-input">{{date}}</view>
+            </picker>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+      
+
+
+    <view class="page-section">
+      <view class="weui-cells__title">里程碑预览：</view>
+      <view class="label" >
+
+    </view>
+    </view>
+
+
+  </view>
+  <template is="foot" />
+</view>
