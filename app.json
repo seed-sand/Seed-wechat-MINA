@@ -5,7 +5,7 @@
     "pages/new/new",
     "pages/once/once",
     "pages/repeat/repeat",
-    "pages/group/group",
+    "pages/contacts/contacts",
     "pages/me/me",
     "pages/task/task",
     "pages/profile/profile"
@@ -34,7 +34,7 @@
       "iconPath": "images/habits.png",
       "selectedIconPath": "images/habits.png"
     }, {
-      "pagePath": "pages/group/group",
+      "pagePath": "pages/contacts/contacts",
       "text": "Group",
       "iconPath": "images/group.png",
       "selectedIconPath": "images/group.png"

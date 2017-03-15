@@ -40,6 +40,13 @@ Page({
 
     //   do something
 
-  }
+  },
 
+  onShareAppMessage: function () {
+    return {
+      title: 'Task1',
+      path: '/page/task/task'
+    }
+  }
+  
 })

@@ -25,7 +25,8 @@
 }
 
 .todos {
-  width : 100%;
+  width : 85%;
+  margin-left: -100rpx;
   border: 1rpx solid #e0e0e0;
   border-radius: 10rpx;
   box-shadow: 0 0 5rpx #e0e0e0;
@@ -62,10 +63,11 @@
 }
 
 .footer {
-  width : 100%;
+  width : 85%;
   display: flex;
   justify-content: space-between;
   margin: 30rpx 0;
+  margin-left: -100rpx;
   padding: 0 10rpx;
   font-size: 26rpx;
   color: #777;
