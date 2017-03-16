@@ -9,7 +9,7 @@
         </view>
         <view class="contact-right flex-row">
           <text class="contact-right-text">{{item.location}}</text>
-          <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+          <image class="wx-cell-arrow" src="/images/right-gray.png"></image>
         </view>
       </view>
     </view> 

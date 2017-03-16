@@ -8,7 +8,7 @@ Page({
   onLoad:function(options){
     // 生命周期函数--监听页面加载
     wx.setNavigationBarTitle({
-      title: options.title,
+      title: "Task",
       success: function(res) {
         // success
       }
@@ -34,9 +34,7 @@ Page({
           
       })
       },300)
-          wx.navigateTo({
-      url: '../input/input'
-    })
+         
 
     //   do something
 

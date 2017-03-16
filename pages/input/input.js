@@ -9,7 +9,6 @@ Page({
     v_float_pwd:'',
     num_current_un:0,  // 当前输入的文本位数
     sp_num_current_un:'', // 当前输入文本位数超过限制时的样式
-    isPwdError:false  // 提交时 密码输入错误时的文本提示
   },
   
   onLoad: function (options) {
@@ -98,11 +97,31 @@ Page({
 
 // 登录按钮模拟表单提交  可用form组件代替
   onLogin:function(e){
-
-    this.setData({
-      isPwdError:true
+    wx.setStorage({
+      key: 'to',
+      data: "pages/index/index",
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
     })
-    console.log(e)
+    wx.navigateBack({
+      delta: 1, // 回退前 delta(默认为1) 页面
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
 
 
   }
