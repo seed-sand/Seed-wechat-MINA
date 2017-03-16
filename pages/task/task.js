@@ -3,7 +3,9 @@ Page({
       ripple_style:'',
       ripple_style2:'',
       reveal:"Reveal",
-      reveal_style:''
+      reveal_style:'',
+      onceTask:false,
+      repeatTask:false
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
@@ -11,6 +13,38 @@ Page({
       title: "Task",
       success: function(res) {
         // success
+      }
+    })
+    wx.getStorage({
+      key: 'onceTask',
+      success: function(res){
+        this.setData({
+          onceTask : true
+       })
+      },
+      fail: function() {
+        Page.setData({
+          onceTask : false
+        })
+      },
+      complete: function() {
+        // complete
+      }
+    })
+    wx.getStorage({
+      key: 'repeatTask',
+      success: function(res){
+        this.setData({
+          repeatTask : true
+        })
+      },
+      fail: function() {
+        this.setData({
+          repeatTask : false
+        })
+      },
+      complete: function() {
+        // complete
       }
     })
   }, 

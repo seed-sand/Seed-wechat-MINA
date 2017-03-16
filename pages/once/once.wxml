@@ -1,46 +1,22 @@
 <view class="container">
-  <view class="page-body">
-
-
-
-    <view class="page-section">
-      <view class="weui-cells__title">
-      <text>添加里程碑：
-      </text>
-      <image class="plus2" src="../../images/plus2.png"/></view>
-
-      
-
-      <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-       <input class="weui-input" auto-focus placeholder="里程碑事件" />
-       
-        </view>
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">当前选择</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-              <view class="weui-input">{{date}}</view>
+  <view class="header">
+    <image class="plus" src="/images/plus2.png"/>
+    <input class="new-todo" value="{{ input }}" placeholder="Anything here..." bindinput="inputChangeHandle" bindchange="addTodoHandle"/>
+  </view>
+  <block wx:if="{{ todos.length }}">
+    <view class="todos">
+      <!-- List items should get the class `completed` when marked as completed -->
+      <view class="item{{ item.completed ? ' completed' : '' }}" wx:for="{{ todos }}" wx:key="{{ index }}" bindtap="toggleTodoHandle" data-index="{{ index }}">
+        <!-- completed: success, todo: circle -->
+        
+        <text class="name">{{ item.name }}</text>
+        <picker mode="date" value="{{begindate}}" start="2017-03-16" end="2030-12-31" bindchange="bindBeginDateChange">
+              <view>{{begindate}}</view>
             </picker>
-          </view>
-        </view>
-
+        <icon class="remove" type="clear" size="16" catchtap="removeTodoHandle" data-index="{{ index }}"/>
       </view>
     </view>
 
-      
-
-
-    <view class="page-section">
-      <view class="weui-cells__title">里程碑预览：</view>
-      <view class="label" >
-
-    </view>
-    </view>
-
-
-  </view>
-  <template is="foot" />
+  </block>
+  <button type="default" bindtap="toOnce" class="completeBtn">Complete</button>
 </view>

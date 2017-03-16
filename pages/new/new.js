@@ -1,10 +1,16 @@
 Page({
   data: {
     focus: false,
-    inputValue: '',
+    title: '',
+    description:'',
     index: 0,
-    date: '2016-09-01',
-    array: ['中国', '美国', '巴西', '日本']    
+    begindate: '2017-03-16',
+    enddate: '2017-03-17'
+  },
+  bindTitle: function(e){
+    this.setData({
+      title: e.detail.value
+    })
   },
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -12,9 +18,9 @@ Page({
       index: e.detail.value
     })
   },
-  bindKeyInput: function (e) {
+  bindTextAreaBlur: function (e) {
     this.setData({
-      inputValue: e.detail.value
+      description: e.detail.value
     })
   },
   bindReplaceInput: function (e) {
@@ -43,14 +49,47 @@ Page({
       wx.hideKeyboard()
     }
   },
-  bindDateChange: function(e) {
+  bindBeginDateChange: function(e) {
     this.setData({
-      date: e.detail.value
+      begindate: e.detail.value
+    })
+  },
+  bindEndDateChange: function(e) {
+    this.setData({
+      enddate: e.detail.value
     })
   },
   toOnce: function(event){
      wx.navigateTo({
       url: '../once/once'
+    })
+    wx.setStorage({
+      key: 'onceTask',
+      data: this.data,
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
+  toRepeat: function(event){
+    wx.setStorage({
+      key: 'repeatTask',
+      data: this.data,
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
     })
   }
 

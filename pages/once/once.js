@@ -1,51 +1,67 @@
+// 1. 完成页面结构、布局、样式
+// 2. 设计数据结构
+// 3. 完成数据绑定
+// 4. 设计交互操作事件
+// 5. 数据存储
 Page({
+  // ===== 页面数据对象 =====
   data: {
-    focus: false,
-    inputValue: '',
-    index: 0,
-    date: '2016-09-01',
-    array: ['中国', '美国', '巴西', '日本']    
+    input: '',
+    todos: [],
+    leftCount: 0,
+    allCompleted: false,
+    logs: []
   },
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
+  save: function () {
+    wx.setStorageSync('todo_list', this.data.todos)
+    wx.setStorageSync('todo_logs', this.data.logs)
   },
-  bindKeyInput: function (e) {
-    this.setData({
-      inputValue: e.detail.value
-    })
-  },
-  bindReplaceInput: function (e) {
-    var value = e.detail.value
-    var pos = e.detail.cursor
-    var left
-    if (pos !== -1) {
-      // 光标在中间
-      left = e.detail.value.slice(0, pos)
-      // 计算光标的位置
-      pos = left.replace(/11/g, '2').length
+  load: function () {
+    var todos = wx.getStorageSync('todo_list')
+    if (todos) {
+      var leftCount = todos.filter(function (item) {
+        return !item.completed
+      }).length
+      this.setData({ todos: todos, leftCount: leftCount })
     }
-
-    // 直接返回对象，可以对输入进行过滤处理，同时可以控制光标的位置
-    return {
-      value: value.replace(/11/g, '2'),
-      cursor: pos
-    }
-
-    // 或者直接返回字符串,光标在最后边
-    // return value.replace(/11/g,'2'),
-  },
-  bindHideKeyboard: function (e) {
-    if (e.detail.value === '123') {
-      // 收起键盘
-      wx.hideKeyboard()
+    var logs = wx.getStorageSync('todo_logs')
+    if (logs) {
+      this.setData({ logs: logs })
     }
   },
-  bindDateChange: function(e) {
+  // ===== 页面生命周期方法 =====
+  onLoad: function () {
+    this.load()
+  },
+  // ===== 事件处理函数 =====
+  inputChangeHandle: function (e) {
+    this.setData({ input: e.detail.value })
+  },
+  addTodoHandle: function (e) {
+    if (!this.data.input || !this.data.input.trim()) return
+    var todos = this.data.todos
+    todos.push({ name: this.data.input, completed: false })
+    var logs = this.data.logs
+    logs.push({ timestamp: new Date(), action: '新增', name: this.data.input })
     this.setData({
-      date: e.detail.value
+      input: '',
+      todos: todos,
+      leftCount: this.data.leftCount + 1,
+      logs: logs
     })
+    this.save()
+  },
+  removeTodoHandle: function (e) {
+    var index = e.currentTarget.dataset.index
+    var todos = this.data.todos
+    var remove = todos.splice(index, 1)[0]
+    var logs = this.data.logs
+    logs.push({ timestamp: new Date(), action: '移除', name: remove.name })
+    this.setData({
+      todos: todos,
+      leftCount: this.data.leftCount - (remove.completed ? 0 : 1),
+      logs: logs
+    })
+    this.save()
   }
 })

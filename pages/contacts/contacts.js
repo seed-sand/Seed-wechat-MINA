@@ -44,9 +44,21 @@ Page({
   data:{
     "contacts":[
       {
-        "header":"Demo",
-        "nickname":"DemoName",
-        "avatar":"/images/plus2.png",
+        "header":"A",
+        "nickname":"Alan",
+        "avatar":"/images/2.png",
+        "location":"USA"
+      },
+      {
+        "header":"H",
+        "nickname":"Hayashi",
+        "avatar":"/images/3.png",
+        "location":"JAPAN"
+      },
+      {
+        "header":"L",
+        "nickname":"Lin",
+        "avatar":"/images/1.png",
         "location":"China"
       }
     ]    
