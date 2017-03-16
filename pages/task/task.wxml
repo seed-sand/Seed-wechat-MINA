@@ -35,14 +35,14 @@
      </view>
     <view class="ripple" style="{{ripple_style}}"></view>
   </view>
-  <view wx:if="{{onceTask}}" class="v-content" bindtap="onClickPaper">
+  <view wx:if="{{oncetask  == 'true'}}" class="v-content" bindtap="onClickPaper">
      <view class="v-main"  >
         <view class="time_left">
-          <text>距下个里程碑还有<text class="target_days">30</text>天
+          <text>距下个里程碑还有<text class="target_days">9</text>天
           </text>
         </view>
         <view class="target_headline">
-          <text>目标：</text><text>坚持跑完一个全马</text>
+          <text>目标：</text><text>TOEFL上110</text>
           
         </view>
         <view class="small_info">
@@ -54,7 +54,7 @@
      </view>
     <view class="ripple" style="{{ripple_style}}"></view>
   </view>
-  <view wx:if="{{repeatTask}}" class="v-content" bindtap="onClickPaper">
+  <view wx:if="{{repeattask == 'true'}}" class="v-content" bindtap="onClickPaper">
      <view class="v-main"  >
         <view class="time_left">
           <text>每日任务</text>

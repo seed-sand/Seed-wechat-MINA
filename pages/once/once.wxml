@@ -18,5 +18,5 @@
     </view>
 
   </block>
-  <button type="default" bindtap="toOnce" class="completeBtn">Complete</button>
+  <button type="default" bindtap="bindCompleteTap" class="completeBtn">Complete</button>
 </view>

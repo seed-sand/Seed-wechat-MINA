@@ -63,5 +63,19 @@ Page({
       logs: logs
     })
     this.save()
+  },
+  bindCompleteTap:function(){
+    wx.navigateBack({
+      delta: 2, // 回退前 delta(默认为1) 页面
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })

@@ -64,8 +64,8 @@ Page({
       url: '../once/once'
     })
     wx.setStorage({
-      key: 'onceTask',
-      data: this.data,
+      key: 'oncetask',
+      data: 'true',
       success: function(res){
         // success
       },
@@ -79,8 +79,20 @@ Page({
   },
   toRepeat: function(event){
     wx.setStorage({
-      key: 'repeatTask',
-      data: this.data,
+      key: 'repeattask',
+      data: 'true',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+    wx.navigateBack({
+      delta: 1, // 回退前 delta(默认为1) 页面
       success: function(res){
         // success
       },

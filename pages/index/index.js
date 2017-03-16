@@ -10,8 +10,46 @@ Page({
     todos: [],
     leftCount: 0,
     allCompleted: false,
-    logs: []
+    logs: [],
+    oncetask:'false'
   },
+  onReady:function(){
+      // 页面渲染完成
+      var isonce = wx.getStorageSync('oncetask');
+    var isrepeat = wx.getStorageSync('repeattask')
+    this.setData({
+      oncetask:isonce,
+      repeattask:isrepeat
+    })
+    },
+    onShow:function(){
+      // 页面显示
+      var isonce = wx.getStorageSync('oncetask');
+    var isrepeat = wx.getStorageSync('repeattask')
+    this.setData({
+      oncetask:isonce,
+      repeattask:isrepeat
+    })
+    },
+    onHide:function(){
+      // 页面隐藏
+      var isonce = wx.getStorageSync('oncetask');
+    var isrepeat = wx.getStorageSync('repeattask')
+    this.setData({
+      oncetask:isonce,
+      repeattask:isrepeat
+    })
+    },
+    onUnload:function(){
+      // 页面关闭
+      var isonce = wx.getStorageSync('oncetask');
+    var isrepeat = wx.getStorageSync('repeattask')
+    this.setData({
+      oncetask:isonce,
+      repeattask:isrepeat
+    })
+    },
+
   save: function () {
     wx.setStorageSync('todo_list', this.data.todos)
     wx.setStorageSync('todo_logs', this.data.logs)

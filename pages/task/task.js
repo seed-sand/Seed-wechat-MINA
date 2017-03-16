@@ -4,8 +4,9 @@ Page({
       ripple_style2:'',
       reveal:"Reveal",
       reveal_style:'',
-      onceTask:false,
-      repeatTask:false
+      wtf:'wtf',
+      oncetask:'false',
+      repeattask:'false'
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
@@ -15,39 +16,44 @@ Page({
         // success
       }
     })
-    wx.getStorage({
-      key: 'onceTask',
-      success: function(res){
-        this.setData({
-          onceTask : true
-       })
-      },
-      fail: function() {
-        Page.setData({
-          onceTask : false
-        })
-      },
-      complete: function() {
-        // complete
-      }
-    })
-    wx.getStorage({
-      key: 'repeatTask',
-      success: function(res){
-        this.setData({
-          repeatTask : true
-        })
-      },
-      fail: function() {
-        this.setData({
-          repeatTask : false
-        })
-      },
-      complete: function() {
-        // complete
-      }
-    })
+    
   }, 
+    onReady:function(){
+      // 页面渲染完成
+      var isonce = wx.getStorageSync('oncetask');
+    var isrepeat = wx.getStorageSync('repeattask')
+    this.setData({
+      oncetask:isonce,
+      repeattask:isrepeat
+    })
+    },
+    onShow:function(){
+      // 页面显示
+      var isonce = wx.getStorageSync('oncetask');
+    var isrepeat = wx.getStorageSync('repeattask')
+    this.setData({
+      oncetask:isonce,
+      repeattask:isrepeat
+    })
+    },
+    onHide:function(){
+      // 页面隐藏
+      var isonce = wx.getStorageSync('oncetask');
+    var isrepeat = wx.getStorageSync('repeattask')
+    this.setData({
+      oncetask:isonce,
+      repeattask:isrepeat
+    })
+    },
+    onUnload:function(){
+      // 页面关闭
+      var isonce = wx.getStorageSync('oncetask');
+    var isrepeat = wx.getStorageSync('repeattask')
+    this.setData({
+      oncetask:isonce,
+      repeattask:isrepeat
+    })
+    },
 
   onClickPaper:function(e){
       var that = this

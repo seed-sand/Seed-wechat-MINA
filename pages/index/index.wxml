@@ -3,7 +3,7 @@
     <image class="plus" src="/images/plus2.png"/>
     <input class="new-todo" value="{{ input }}" placeholder="Anything here..." bindinput="inputChangeHandle" bindchange="addTodoHandle"/>
   </view>
-  <block wx:if="{{ todos.length }}">
+  <block wx:if="{{ todos.length  + 1}}">
     <view class="todos">
       <!-- List items should get the class `completed` when marked as completed -->
       <view class="item{{ item.completed ? ' completed' : '' }}" wx:for="{{ todos }}" wx:key="{{ index }}" bindtap="toggleTodoHandle" data-index="{{ index }}">
@@ -11,6 +11,15 @@
         <icon class="checkbox" type="{{ item.completed ? 'success' : 'circle' }}"/>
         <text class="name">{{ item.name }}</text>
         <icon class="remove" type="clear" size="16" catchtap="removeTodoHandle" data-index="{{ index }}"/>
+      </view>
+    </view>
+    <view wx:if="{{oncetask  == 'true'}}" class="todos">
+      <!-- List items should get the class `completed` when marked as completed -->
+      <view  class="''">
+        <!-- completed: success, todo: circle -->
+        <icon class="checkbox" type="circle"/>
+        <text class="name">跑步5公里</text>
+        <icon class="remove" type="clear" size="16" catchtap="removeTodoHandle" data-index="5"/>
       </view>
     </view>
     <view class="footer">
